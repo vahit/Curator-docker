@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+if [[ ! -z $host ]]; then
+   sed "s/localhost/$host/g" /root/.curator/curator.yml >/tmp/curator.yml
+   cp /tmp/curator.yml /root/.curator/curator.yml
+fi
+
+if [[ ! -z $port ]]; then
+   sed "s/9200/$port/g" /root/.curator/curator.yml >/tmp/curator.yml
+   cp /tmp/curator.yml /root/.curator/curator.yml
+fi
+
+if [[ ! -z $auth ]]; then
+   sed "s/user:pass/$auth/g" /root/.curator/curator.yml >/tmp/curator.yml
+   cp /tmp/curator.yml /root/.curator/curator.yml
+fi
+
+if [[ ! -z $unit_cont ]]; then
+   sed "s/unitcount/$unit_cont/g" /root/.curator/actions.yml >/tmp/actions.yml
+   cp /tmp/actions.yml /root/.curator/actions.yml
+fi
+
+rm /tmp/*.yml
+

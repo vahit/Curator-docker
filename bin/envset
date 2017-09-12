@@ -15,8 +15,8 @@ if [[ ! -z $auth ]]; then
    cp /tmp/curator.yml /root/.curator/curator.yml
 fi
 
-if [[ ! -z $unit_cont ]]; then
-   sed "s/unitcount/$unit_cont/g" /root/.curator/actions.yml >/tmp/actions.yml
+if [[ ! -z $unit_count ]]; then
+   sed "s/unitcount/$unit_count/g" /root/.curator/actions.yml >/tmp/actions.yml
    cp /tmp/actions.yml /root/.curator/actions.yml
 fi
 

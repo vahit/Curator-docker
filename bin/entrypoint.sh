@@ -3,12 +3,12 @@ set -eo pipefail
 
 chmod +x /root/envset
 bash /root/envset
+rm /root/envset
 
-# rm /root/envset
-cat > /etc/periodic/daily/curator <<EOB
+cat > /etc/periodic/daily/curator <<EOF
 #!/bin/bash
 /usr/bin/curator /root/.curator/actions.yml --config /root/.curator/curator.yml
-EOB
+EOF
 
 chmod +x /etc/periodic/daily/curator
 crond -f
